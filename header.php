@@ -22,9 +22,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fotocopy Admis Copy Center</title>
+    <title>Toko Karina Makmur</title>
 
-    <link rel="icon" href="img/pencil-case.png" type="image/x-icon">
+    <link rel="icon" href="img/dunes.png" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -50,11 +50,11 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
+                <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
-                    <img src="img/pencil-case.png" width="50" height="50">
+                    <img src="img/dunes.png" width="50" height="50">
                 </div>
-                <div class="sidebar-brand-text mx-3">Admis Copy Center</div>
+                <div class="sidebar-brand-text mx-3">Karina Makmur</div>
             </a>
 
             <!-- Divider -->
