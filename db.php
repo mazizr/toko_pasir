@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "fotokopi";
+$dbname = "toko_pasir";
 
 // Membuat koneksi
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -33,7 +33,7 @@ function cekStokBarang() {
 function getBarang() {
     global $conn;
     
-    $query = "SELECT * FROM barang";
+    $query = "SELECT * FROM barang ORDER BY kode_barang DESC;";
     $result = $conn->query($query);
 
     $data = array();
@@ -50,7 +50,7 @@ function getBarang() {
 function getKaryawan() {
     global $conn;
     
-    $query = "SELECT * FROM karyawan";
+    $query = "SELECT * FROM karyawan ORDER BY kode_karyawan DESC;";
     $result = $conn->query($query);
 
     $data = array();
@@ -181,16 +181,24 @@ function getLaporanBanyakTransaksi() {
     return $data;
 }
 
-function insertBarang($namaBarang, $hargaBarang, $jumlahBarang) {
+function insertBarang($namaBarang, $hargaBarang, $jumlahBarang, $satuanBarang) {
     global $conn;
 
-    $query = "INSERT INTO barang (nama_barang, harga_barang, jumlah_barang) VALUES ('$namaBarang', '$hargaBarang', '$jumlahBarang')";
+    $query = "INSERT INTO barang (nama_barang, harga_barang, jumlah_barang, satuan) VALUES ('$namaBarang', '$hargaBarang', '$jumlahBarang', '$satuanBarang')";
     $result = $conn->query($query);
 
     if ($result === false) {
         die("Error: " . $conn->error);
     } else {
-        echo '<script>window.location.href = "data_barang.php";</script>'; // Alihkan ke halaman data_barang.php
+        echo '<script>
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil!",
+          text: "Data barang berhasil ditambahkan.",
+        }).then(() => {
+          window.location.href = "data_barang.php"; // Alihkan ke halaman data_barang.php setelah menutup SweetAlert
+        });
+      </script>'; // Alihkan ke halaman data_barang.php
     }
 
     // Pesan sukses atau tindakan selanjutnya setelah berhasil memasukkan data
@@ -201,13 +209,21 @@ function insertBarang($namaBarang, $hargaBarang, $jumlahBarang) {
 function insertKaryawan($namaKaryawan, $notelpKaryawan, $alamatKaryawan, $usernameKaryawan, $passwordKaryawan, $roleKaryawan) {
     global $conn;
 
-    $query = "INSERT INTO karyawan (nama_karyawan, no_telp, alamat, username, password, level) VALUES ('$namaKaryawan', '$notelpKaryawan', '$alamatKaryawan', '$usernameKaryawan', '$passwordKaryawan', '$roleKaryawan')";
+    $query = "INSERT INTO karyawan (nama_karyawan, no_telp, alamat, nama_pengguna, kata_sandi, role) VALUES ('$namaKaryawan', '$notelpKaryawan', '$alamatKaryawan', '$usernameKaryawan', '$passwordKaryawan', '$roleKaryawan')";
     $result = $conn->query($query);
 
     if ($result === false) {
         die("Error: " . $conn->error);
     } else {
-        echo '<script>window.location.href = "data_karyawan.php";</script>'; // Alihkan ke halaman data_barang.php
+        echo '<script>
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil!",
+          text: "Data barang berhasil ditambahkan.",
+        }).then(() => {
+          window.location.href = "data_karyawan.php"; // Alihkan ke halaman data_barang.php setelah menutup SweetAlert
+        });
+      </script>'; // Alihkan ke halaman data_barang.php
     }
 
     // Pesan sukses atau tindakan selanjutnya setelah berhasil memasukkan data
@@ -267,17 +283,26 @@ function insertPenjualanDetail($id_barang, $id_penjualan, $qty) {
     } 
 }
 
-function editBarang($idBarang, $namaBarang, $hargaBarang, $jumlahBarang) {
+function editBarang($idBarang,$namaBarang, $hargaBarang, $jumlahBarang, $satuanBarang) {
     global $conn;
 
     // Mengupdate data barang ke database
-    $query = "UPDATE barang SET nama_barang = '$namaBarang', jumlah_barang = '$jumlahBarang', harga_barang = '$hargaBarang' WHERE id_barang = '$idBarang'";
+    $query = "UPDATE barang SET nama_barang = '$namaBarang', jumlah_barang = '$jumlahBarang', harga_barang = '$hargaBarang', satuan = '$satuanBarang' 
+    WHERE kode_barang = '$idBarang'";
     $result = $conn->query($query);
 
     if ($result === false) {
         die("Error: " . $conn->error);
     } else {
-        echo '<script>window.location.href = "data_barang.php";</script>'; // Alihkan ke halaman data_barang.php
+        echo '<script>
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil!",
+          text: "Data barang berhasil diubah.",
+        }).then(() => {
+          window.location.href = "data_barang.php"; // Alihkan ke halaman data_barang.php setelah menutup SweetAlert
+        });
+      </script>'; // Alihkan ke halaman data_barang.php
     }
 
     // Pesan sukses atau tindakan selanjutnya setelah berhasil memasukkan data
@@ -291,14 +316,22 @@ function editKaryawan($idKaryawan,$namaKaryawan, $notelpKaryawan, $alamatKaryawa
     // Mengupdate data barang ke database
     $query = "UPDATE karyawan SET 
     nama_karyawan = '$namaKaryawan', no_telp = '$notelpKaryawan', alamat = '$alamatKaryawan', 
-    username = '$usernameKaryawan', password = '$passwordKaryawan', level = '$roleKaryawan' 
-    WHERE id_karyawan = '$idKaryawan'";
+    nama_pengguna = '$usernameKaryawan', kata_sandi = '$passwordKaryawan', role = '$roleKaryawan' 
+    WHERE kode_karyawan = '$idKaryawan'";
     $result = $conn->query($query);
 
     if ($result === false) {
         die("Error: " . $conn->error);
     } else {
-        echo '<script>window.location.href = "data_karyawan.php";</script>'; // Alihkan ke halaman data_karyawan.php
+        echo '<script>
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil!",
+          text: "Data barang berhasil diubah.",
+        }).then(() => {
+          window.location.href = "data_karyawan.php"; // Alihkan ke halaman data_karyawan.php setelah menutup SweetAlert
+        });
+      </script>'; // Alihkan ke halaman data_karyawan.php
     }
 
     // Pesan sukses atau tindakan selanjutnya setelah berhasil memasukkan data

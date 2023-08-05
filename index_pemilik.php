@@ -22,9 +22,10 @@ $dataLaporanBanyakTransaksi = getLaporanBanyakTransaksi();
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Pilih Bulan Laporan Barang Masuk</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Laporan</h6>
             <div class="ml-auto">
                 <select id="bulanSelectBM" class="form-control input-bulan" onchange="filterLaporanBM()">
+                    <option disabled>Pilih Bulan</option>
                     <option value="1">Januari</option>
                     <option value="2">Februari</option>
                     <option value="3">Maret</option>

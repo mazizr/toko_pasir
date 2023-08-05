@@ -12,11 +12,9 @@ require 'db.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title>Toko Karina Makmur</title>
 
-    <title>Fotocopy Admis Copy Center</title>
-
-    <link rel="icon" href="img/pencil-case.png" type="image/x-icon">
-
+    <link rel="icon" href="img/dunes.png" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -24,7 +22,12 @@ require 'db.php';
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -59,11 +62,11 @@ require 'db.php';
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 name="username" aria-describedby="emailHelp"
-                                                placeholder="Username" autocomplete="off" required autofocus>
+                                                placeholder="Nama Pengguna" autocomplete="off" required autofocus>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="password" placeholder="Password" required>
+                                                name="password" placeholder="Kata Sandi" required>
                                         </div>
 
                                         <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">

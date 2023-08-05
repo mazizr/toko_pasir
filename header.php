@@ -24,6 +24,9 @@
 
     <title>Toko Karina Makmur</title>
 
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     <link rel="icon" href="img/dunes.png" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,9 +38,8 @@
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
 
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    <!-- Memuat SweetAlert dari CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -60,7 +62,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <?php if ($_SESSION['level'] == 'pemilik') { ?>
+            <?php if ($_SESSION['role'] == 'pemilik') { ?>
                 <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index_pemilik.php">
@@ -96,9 +98,9 @@
                     <img src="img/printer.png" style="margin-right : 5px;" width="15" height="15" alt="" srcset="">
                     <i class="fas fa-fw fa-chart-area"></i> -->
                     <!-- <span>Cetak Laporan</span></a> -->
-            <!-- </li> --> -->
+            <!-- </li> -->
             <?php
-            } else if ($_SESSION['level'] == 'admin') {
+            } else if ($_SESSION['role'] == 'karyawan') {
             ?>
             <!-- Heading -->
             <div style="margin-top: 20px;" class="sidebar-heading">

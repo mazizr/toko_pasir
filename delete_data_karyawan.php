@@ -3,7 +3,7 @@
 $dataId = $_POST['data_id'];
 
 // Melakukan koneksi ke database
-$koneksi = mysqli_connect("localhost", "root", "", "fotokopi");
+$koneksi = mysqli_connect("localhost", "root", "", "toko_pasir");
 
 // Memeriksa koneksi database
 if (mysqli_connect_errno()) {
@@ -14,7 +14,7 @@ if (mysqli_connect_errno()) {
 // echo "Ini ID : $dataId";
 
 // Membuat query SQL untuk menghapus data
-$query = "DELETE FROM karyawan WHERE id_karyawan = $dataId";
+$query = "DELETE FROM karyawan WHERE kode_karyawan = $dataId";
 
 mysqli_query($koneksi, $query);
 

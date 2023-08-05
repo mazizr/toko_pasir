@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $namaBarang = $_POST['nama_barang'];
   $jumlahBarang = $_POST['jumlah_barang'];
   $hargaBarang = $_POST['harga_barang'];
-  insertBarang($namaBarang, $hargaBarang, $jumlahBarang);
+  $satuanBarang = $_POST['satuan_barang'];
+  insertBarang($namaBarang, $hargaBarang, $jumlahBarang, $satuanBarang);
 }
 ?>

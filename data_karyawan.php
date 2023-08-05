@@ -54,38 +54,38 @@ $dataKaryawan = getKaryawan();
             <div class="modal-body">    
                 <div class="form-floating mb-4">
                     <label for="Nama">Nama Karyawan</label>
-                    <input type="text" class="form-control" name="nama_karyawan" placeholder="">
+                    <input required type="text" class="form-control" name="nama_karyawan" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
                     <label for="Harga">No Telp</label>
-                    <input type="text" class="form-control" name="no_telp" placeholder="">
+                    <input required type="text" class="form-control" name="no_telp" placeholder="">
                 </div>
                 
                 <div class="form-floating mb-4">
                     <label for="Harga">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" placeholder="">
+                    <input required type="text" class="form-control" name="alamat" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="">
+                    <label for="Harga">Nama Pengguna</label>
+                    <input required type="text" class="form-control" name="username" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Password</label>
-                    <input type="text" class="form-control" name="password" placeholder="">
+                    <label for="Harga">Kata Sandi</label>
+                    <input required type="text" class="form-control" name="password" placeholder="">
                 </div>
                 
                 <div class="form-floating mb-4">
                     <label for="Harga">Role</label><br>
                     <div class="d-inline custom-control custom-radio">
-                        <input type="radio" id="pemilik" name="role" class="custom-control-input" value="pemilik">
+                        <input required type="radio" id="pemilik" name="role" class="custom-control-input" value="pemilik">
                         <label style="margin-right: 5px;" class="custom-control-label" for="pemilik">Pemilik</label>
                     </div>
                     <div class="d-inline custom-control custom-radio">
-                        <input type="radio" id="admin" name="role" class="custom-control-input" value="admin">
-                        <label class="custom-control-label" for="admin">Admin</label>
+                        <input required type="radio" id="karyawan" name="role" class="custom-control-input" value="karyawan">
+                        <label class="custom-control-label" for="karyawan">Karyawan</label>
                     </div>
                 </div>
 
@@ -123,41 +123,41 @@ $dataKaryawan = getKaryawan();
       </div>
         <form action="edit_data_karyawan.php" id="myForm" method="POST">
             <div class="modal-body">    
-                <input type="number" style="display: none;" id="id_karyawan" class="form-control" name="id_karyawan">
+                <input required type="number" style="display: none;" id="kode_karyawan" class="form-control" name="kode_karyawan">
                 <div class="form-floating mb-4">
                     <label for="Nama">Nama Karyawan</label>
-                    <input type="text" class="form-control" id="nama_karyawan" name="nama_karyawan" placeholder="">
+                    <input required type="text" class="form-control" id="nama_karyawan" name="nama_karyawan" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
                     <label for="Harga">No Telp</label>
-                    <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="">
+                    <input required type="text" class="form-control" id="no_telp" name="no_telp" placeholder="">
                 </div>
                 
                 <div class="form-floating mb-4">
                     <label for="Harga">Alamat</label>
-                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="">
+                    <input required type="text" class="form-control" id="alamat" name="alamat" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="">
+                    <label for="Harga">Nama Pengguna</label>
+                    <input required type="text" class="form-control" id="username" name="username" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Password</label>
-                    <input type="text" class="form-control" id="password" name="password" placeholder="">
+                    <label for="Harga">Kata Sandi</label>
+                    <input required type="text" class="form-control" id="password" name="password" placeholder="">
                 </div>
                 
                 <div class="form-floating mb-4">
                     <label for="Harga">Role</label><br>
                     <div class="d-inline custom-control custom-radio">
-                        <input type="radio" id="edit-pemilik" name="edit-role" class="custom-control-input" value="pemilik">
+                        <input required type="radio" id="edit-pemilik" name="edit-role" class="custom-control-input" value="pemilik">
                         <label style="margin-right: 5px;" class="custom-control-label" for="edit-pemilik">Pemilik</label>
                     </div>
                     <div class="d-inline custom-control custom-radio">
-                        <input type="radio" id="edit-admin" name="edit-role" class="custom-control-input" value="admin">
-                        <label class="custom-control-label" for="edit-admin">Admin</label>
+                        <input required type="radio" id="edit-admin" name="edit-role" class="custom-control-input" value="karyawan">
+                        <label class="custom-control-label" for="edit-admin">Karyawan</label>
                     </div>
                 </div>
 
@@ -216,8 +216,8 @@ $dataKaryawan = getKaryawan();
                         <th>Nama Kayawan</th>
                         <th>No Telp</th>
                         <th>Alamat</th>
-                        <th>Username</th>
-                        <th>Password</th>
+                        <th>Nama Pengguna</th>
+                        <th>Kata Sandi</th>
                         <th>Role</th>
                         <th>Aksi</th>
                     </tr>
@@ -228,8 +228,8 @@ $dataKaryawan = getKaryawan();
                         <th>Nama Kayawan</th>
                         <th>No Telp</th>
                         <th>Alamat</th>
-                        <th>Username</th>
-                        <th>Password</th>
+                        <th>Nama Pengguna</th>
+                        <th>Kata Sandi</th>
                         <th>Role</th>
                         <th>Aksi</th>
                     </tr>
@@ -242,22 +242,21 @@ $dataKaryawan = getKaryawan();
                             $i += 1;
                     ?>
                     <tr>
-                        <td hidden><?php echo $karyawan['id_karyawan']; ?></td>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $karyawan['nama_karyawan']; ?></td>
                         <td><?php echo $karyawan['no_telp']; ?></td>
                         <td><?php echo $karyawan['alamat']; ?></td>
-                        <td><?php echo $karyawan['username']; ?></td>
-                        <td><?php echo $karyawan['password']; ?></td>
-                        <td><?php echo $karyawan['level']; ?></td>
+                        <td><?php echo $karyawan['nama_pengguna']; ?></td>
+                        <td><?php echo $karyawan['kata_sandi']; ?></td>
+                        <td><?php echo $karyawan['role']; ?></td>
                         <td>
-                            <a href="#" id_karyawan="<?php echo $karyawan['id_karyawan']; ?>" class="btn btn-sm btn-warning btn-icon-split btn-round btn-sm editbtn">
+                            <a href="#" kode_karyawan="<?php echo $karyawan['kode_karyawan']; ?>" class="btn btn-sm btn-warning btn-icon-split btn-round btn-sm editbtn">
                                 <span class="icon text-white-50">
                                     <img src="img/editing.png" alt="Icon" style="margin-right: 5px;"  width="21" height="21">
                                 </span>
                                 <span class="text"><b>Edit</b></span>
                             </a>
-                            <a href="#" data-toggle="modal" data-target="#konfirmasiModal" isi="<?php echo $karyawan['id_karyawan']; ?>" onclick="hapusData(this);" class="btn btn-sm btn-danger btn-icon-split btn-round btn-sm">
+                            <a href="#" data-toggle="modal" data-target="#konfirmasiModal" isi="<?php echo $karyawan['kode_karyawan']; ?>" onclick="hapusData(this);" class="btn btn-sm btn-danger btn-icon-split btn-round btn-sm">
                                 <span class="icon text-white-50">
                                     <img src="img/delete.png" alt="Icon" style="margin-right: 5px;" width="21" height="21">
                                 </span>
@@ -301,12 +300,14 @@ require 'footer.php';
 
             console.log(data);
 
-            $('#id_karyawan').val(data[0]);
-            $('#nama_karyawan').val(data[2]);
-            $('#no_telp').val(data[3]);
-            $('#alamat').val(data[4]);
-            $('#username').val(data[5]);
-            $('#password').val(data[6]);
+            var kodeKaryawan = $(this).attr("kode_karyawan");
+
+            $('#kode_karyawan').val(kodeKaryawan);
+            $('#nama_karyawan').val(data[1]);
+            $('#no_telp').val(data[2]);
+            $('#alamat').val(data[3]);
+            $('#username').val(data[4]);
+            $('#password').val(data[5]);
 
             function setRadioValue(value) {
               // Dapatkan elemen radio berdasarkan atribut name
@@ -323,7 +324,7 @@ require 'footer.php';
             }
 
             // Contoh penggunaan fungsi untuk mengatur radio button
-            setRadioValue(data[7]);
+            setRadioValue(data[6]);
         });
     });
 </script>
@@ -385,8 +386,13 @@ function hapusData(button) {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-          // alert(xhr.responseText); // Tampilkan pesan sukses dari server
-          location.reload(); // Memuat ulang halaman setelah berhasil menghapus data
+          Swal.fire({
+            icon: 'success', // Ikon SweetAlert success
+            title: 'Berhasil!',
+            text: 'Hapus Data Berhasil.', // Pesan yang ingin Anda tampilkan
+          }).then(() => {
+            location.reload();
+          });
         } else {
           alert('Terjadi kesalahan: ' + xhr.status); // Tampilkan pesan kesalahan dari server
         }

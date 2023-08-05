@@ -63,14 +63,19 @@ $datacekStokBarang = cekStokBarang();
             <div class="modal-body">    
                 <div class="form-floating mb-4">
                     <label for="Nama">Nama Barang</label>
-                    <input type="text" class="form-control" name="nama_barang" placeholder="">
+                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Barang">
                 </div>
 
                 <input type="number" style="display: none;" class="form-control" name="jumlah_barang" value="0">
 
                 <div class="form-floating mb-4">
                     <label for="Harga">Harga Barang</label>
-                    <input type="number" class="form-control" name="harga_barang" placeholder="">
+                    <input type="number" class="form-control" name="harga_barang" placeholder="Masukkan Harga Barang">
+                </div>
+
+                <div class="form-floating mb-4">
+                    <label for="Satuan">Satuan Barang</label>
+                    <input type="text" class="form-control" name="satuan_barang" placeholder="Masukkan Satuan Barang">
                 </div>
             </div>
             <div class="modal-footer">
@@ -117,6 +122,11 @@ $datacekStokBarang = cekStokBarang();
                 <div class="form-floating mb-4">
                     <label for="Harga">Harga Barang</label>
                     <input type="number" id="harga_barang" class="form-control" name="harga_barang" placeholder="">
+                </div>
+
+                <div class="form-floating mb-4">
+                    <label for="Satuan">Satuan Barang</label>
+                    <input type="text" class="form-control" id="satuan_barang" name="satuan_barang" placeholder="">
                 </div>
             </div>
             <div class="modal-footer">
@@ -170,19 +180,21 @@ $datacekStokBarang = cekStokBarang();
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Barang></th>
-                        <th>Qty</th>
-                        <th>Harga</th>
-                        <th style="width: 250px;">Aksi</th>
+                        <th>Nama Barang</th>
+                        <th>Satuan Barang</th>
+                        <th>Harga Barang</th>
+                        <th>Jumlah Stok</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No</th>
                         <th>Nama Barang</th>
-                        <th>Qty</th>
-                        <th>Harga</th>
-                        <th style="width: 250px;">Aksi</th>
+                        <th>Satuan Barang</th>
+                        <th>Harga Barang</th>
+                        <th>Jumlah Stok</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -193,21 +205,22 @@ $datacekStokBarang = cekStokBarang();
                             $i += 1;
                     ?>
                     <tr>
-                        <td hidden><?php echo $barang['id_barang']; ?></td>
+                        <td hidden><?php echo $barang['kode_barang']; ?></td>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $barang['nama_barang']; ?></td>
-                        <td><?php echo $barang['jumlah_barang']; ?></td>
+                        <td><?php echo $barang['satuan']; ?></td>
                         <td><?php echo $barang['harga_barang']; ?></td>
+                        <td><?php echo $barang['jumlah_barang']; ?></td>
                         <td>
-                            <a href="#" id_barang="<?php echo $barang['id_barang']; ?>" class="btn btn-warning btn-icon-split btn-round btn-sm editbtn">
+                            <a href="#" id_barang="<?php echo $barang['kode_barang']; ?>" class="btn btn-warning btn-icon-split btn-round btn-sm editbtn">
                                 <span class="icon text-white-50">
-                                    <img src="img/editing.png" alt="Icon" style="margin-right: 5px;"  width="23" height="23">
+                                    <img src="img/editing.png" alt="Icon" style="margin-left: 2px; margin-bottom: 2px;"  width="17" height="17">
                                 </span>
                                 <span class="text"><b>Edit</b></span>
                             </a>
-                            <a href="#" data-toggle="modal" data-target="#konfirmasiModal" isi="<?php echo $barang['id_barang']; ?>" onclick="hapusData(this);" class="btn btn-danger btn-icon-split btn-round btn-sm">
+                            <a href="#" data-toggle="modal" data-target="#konfirmasiModal" isi="<?php echo $barang['kode_barang']; ?>" onclick="hapusData(this);" class="btn btn-danger btn-icon-split btn-round btn-sm">
                                 <span class="icon text-white-50">
-                                    <img src="img/delete.png" alt="Icon" style="margin-right: 5px;" width="23" height="23">
+                                    <img src="img/delete.png" alt="Icon" style="margin-left: 2px; margin-bottom: 2px;" width="17" height="17">
                                 </span>
                                 <span class="text"><b>Hapus</b></span>
                             </a>
@@ -252,8 +265,9 @@ require 'footer.php';
 
             $('#id_barang').val(data[0]);
             $('#nama_barang').val(data[2]);
-            $('#jumlah_barang').val(data[3]);
+            // $('#jumlah_barang').val(data[3]);
             $('#harga_barang').val(data[4]);
+            $('#satuan_barang').val(data[3]);
         });
     });
 </script>
@@ -316,13 +330,21 @@ function hapusData(button) {
   btnHapus.onclick = function() {
     // Buat objek XMLHttpRequest atau gunakan fetch API jika Anda lebih memilih
     var xhr = new XMLHttpRequest();
+    // alert(dataId);
 
     // Tetapkan fungsi callback untuk menangani respons dari server
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
         //   alert(xhr.responseText); // Tampilkan pesan sukses dari server
-          location.reload(); // Memuat ulang halaman setelah berhasil menghapus data
+          Swal.fire({
+            icon: 'success', // Ikon SweetAlert success
+            title: 'Berhasil!',
+            text: 'Hapus Data Berhasil.', // Pesan yang ingin Anda tampilkan
+          }).then(() => {
+            location.reload();
+          });
+
         } else {
           alert('Terjadi kesalahan: ' + xhr.status); // Tampilkan pesan kesalahan dari server
         }
