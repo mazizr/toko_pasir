@@ -46,7 +46,7 @@ $dataBarang = getBarang();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Barang Masuk</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel"><strong>Tambah Data Barang Masuk</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -54,8 +54,8 @@ $dataBarang = getBarang();
         <form action="tambah_data_barang_masuk.php" id="myForm" method="POST">
             <div class="modal-body"> 
               <div class="form-floating mb-4">
-                <label for="Nama">Nama Barang</label>
-                <select class="form-control" name="id_barang">;
+                <label for="Nama"><strong>Nama Barang</strong></label>
+                <select class="form-control" name="id_barang" required>;
                   <option value="">Pilih Barang</option>;
                   <?php
                     foreach ($dataBarang as $barang) {
@@ -68,13 +68,13 @@ $dataBarang = getBarang();
               </div> 
 
               <div class="form-floating mb-4">
-                  <label for="Harga">Jumlah Pertambahan</label>
-                  <input type="number" class="form-control" name="jumlah_pertambahan" placeholder="">
+                  <label for="Harga"><strong>Jumlah Pertambahan</strong></label>
+                  <input type="number" class="form-control" name="jumlah_pertambahan" placeholder="" required autocomplete="off">
               </div>
 
               <div class="form-floating mb-4">
-                  <label for="Harga">Tanggal Pertambahan</label>
-                  <input type="date" class="form-control" name="tanngal_pertambahan" placeholder="">
+                  <label for="Harga"><strong>Tanggal Pertambahan</strong></label>
+                  <input type="date" class="form-control" name="tanngal_pertambahan" placeholder="" required autocomplete="off" value="<?php echo date('Y-m-d'); ?>" disabled>
               </div>
               <input type="text" style="display: none;" class="form-control" name="id_karyawan" value="<?php echo $_SESSION['id']; ?>">
 
@@ -104,7 +104,7 @@ $dataBarang = getBarang();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Data Barang</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel"><strong>Edit Data Barang</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -113,8 +113,8 @@ $dataBarang = getBarang();
             <div class="modal-body">    
               <input type="text" style="display: none;" class="form-control" id="id_barang_masuk" name="id_barang_masuk" value="<?php echo $_SESSION['id']; ?>">
               <div class="form-floating mb-4">
-                <label for="Nama">Nama Barang</label>
-                <select class="form-control" id="id_barang" name="id_barang">;
+                <label for="Nama"><strong>Nama Barang</strong></label>
+                <select class="form-control" id="id_barang" name="id_barang" required>;
                   <option value="">Pilih Barang</option>;
                   <?php
                     foreach ($dataBarang as $barang) {
@@ -127,14 +127,14 @@ $dataBarang = getBarang();
               </div> 
 
               <div class="form-floating mb-4">
-                  <label for="Harga">Jumlah Pertambahan</label>
-                  <input type="number" class="form-control" id="jumlah_pertambahan" name="jumlah_pertambahan" placeholder="">
+                  <label for="Harga"><strong>Jumlah Pertambahan</strong></label>
+                  <input type="number" class="form-control" id="jumlah_pertambahan" name="jumlah_pertambahan" placeholder="" required autocomplete="off">
               </div>
               <input type="text" style="display: none;" class="form-control" id="jumlah_sebelum" name="jumlah_sebelum">
                     
               <div class="form-floating mb-4">
-                  <label for="Harga">Tanggal Pertambahan</label>
-                  <input type="date" class="form-control" id="tanngal_pertambahan" name="tanngal_pertambahan" placeholder="">
+                  <label for="Harga"><strong>Tanggal Pertambahan</strong></label>
+                  <input type="date" class="form-control" id="tanngal_pertambahan" name="tanngal_pertambahan" placeholder="" required value="<?php echo date('Y-m-d'); ?>" disabled>
               </div>
               <input type="text" style="display: none;" class="form-control" id="id_karyawan" name="id_karyawan" value="<?php echo $_SESSION['id']; ?>">
             </div>
@@ -197,17 +197,9 @@ $dataBarang = getBarang();
                         <th style="width: 250px;">Aksi</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Barang</th>
-                        <th>Jumlah Pertambahan</th>
-                        <th>Tanggal Pertambahan</th>
-                        <th>Penanggung Jawab</th>
-                        <th style="width: 250px;">Aksi</th>
-                    </tr>
-                </tfoot>
+                
                 <tbody>
+                    
                     <?php
                     // Menampilkan data barang
                         $i = 0;
@@ -293,7 +285,7 @@ function resetForm() {
   document.getElementById("myForm").reset();
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $namaBarang = $_POST['nama_barang'];
+  $namaBarang = strtolower($_POST['nama_barang']);
   $jumlahBarang = $_POST['jumlah_barang'];
   $hargaBarang = $_POST['harga_barang'];
   insertBarang($namaBarang, $hargaBarang, $jumlahBarang);
