@@ -10,7 +10,7 @@ $dataPenjualan = getPenjualan();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Barang</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel" ><strong>Tambah Data Barang</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,11 +18,11 @@ $dataPenjualan = getPenjualan();
       <form action="tambah_pesanan.php" id="tambah-form" method="POST">   
             <div class="modal-body">    
                 <div class="form-floating mb-4">
-                    <label for="Nama">Tanggal Pesanan</label>
-                    <input type="date" id="tanggal_penjualan" class="form-control" name="tanggal_penjualan" placeholder="">
+                    <label for="Nama"><strong>Tanggal Pesanan</strong></label>
+                    <input type="date" id="tanggal_penjualan" class="form-control" name="tanggal_penjualan" placeholder="" disabled value="<?php echo date('Y-m-d'); ?>">
                 </div>
                 <div class="form-floating mb-4" style="margin-top: -10px;">
-                    <label for="Nama">Total Harga</label>
+                    <label for="Nama"><strong>Total Harga</strong></label>
                     <input type="text" id="total" class="form-control" name="total" placeholder="" readonly>
                 </div><hr>
                 <div id="dynamicForm">
@@ -114,14 +114,7 @@ $dataPenjualan = getPenjualan();
                         <th>Detail</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                    <th>No</th>
-                        <th>Tanggal Pesanan</th>
-                        <th>Total Harga</th>
-                        <th>Detail</th>
-                    </tr>
-                </tfoot>
+                
                 <tbody>
                 <?php
                     // Menampilkan data barang
@@ -198,16 +191,16 @@ foreach ($dataBarang as $penjualan) {
         function tambahBarangBaru() {
             var html =  '<div class="barang">' +
                             '<div class="form-floating mb-4">' +
-                                '<label for="Nama">Nama Barang</label>' +
-                                '<select class="form-control input-barang" id_name="id_barang" name="id_barang[]">' +
+                                '<label for="Nama"><strong>Nama Barang</strong></label>' +
+                                '<select class="form-control input-barang" id_name="id_barang" name="id_barang[]" required>' +
                                 '<option value="">Pilih Barang</option>' +
                                 options + // Masukkan options dari PHP ke dalam HTML JavaScript
                                 '</select>' +
                             '</div>' +
                             '<input type="text" id="counter'+counter+'" class="form-control" name="counter" hidden>' +
                             '<div class="form-floating mb-4" style="margin-top: -10px;">' +
-                                '<label for="Nama">Qty</label>' +
-                                '<input type="text" id="qty" class="form-control qty" id_name="qty" name="qty[]" placeholder="">' +
+                                '<label for="Nama"><strong>Qty</strong></label>' +
+                                '<input type="text" id="qty" class="form-control qty" id_name="qty" name="qty[]" placeholder="" required autocomplete="off">' +
                             '</div>'+
                             '<a class="btn btn-danger btn-icon-split btn-round btn-sm btnHapusBarang">'+
                                 '<span class="icon text-white-50">'+
