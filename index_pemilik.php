@@ -23,6 +23,7 @@ $dataLaporanBanyakTransaksi = getLaporanBanyakTransaksi();
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Laporan</h6>
+            <br>
             <div class="ml-auto">
                 <select id="bulanSelectBM" class="form-control input-bulan" onchange="filterLaporanBM()">
                     <option disabled>Pilih Bulan</option>
@@ -52,13 +53,6 @@ $dataLaporanBanyakTransaksi = getLaporanBanyakTransaksi();
                             <th>Jumlah Barang Masuk</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Barang</th>
-                            <th>Jumlah Barang Masuk</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                     <?php
                         // Menampilkan data barang
@@ -90,6 +84,7 @@ $dataLaporanBanyakTransaksi = getLaporanBanyakTransaksi();
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Pilih Bulan Laporan Transaksi</h6>
+        <br>
         <div class="ml-auto">
             <select id="bulanSelectTransaksi" class="form-control input-bulan" onchange="filterLaporanTrans()">
                 <option value="1">Januari</option>
@@ -106,6 +101,7 @@ $dataLaporanBanyakTransaksi = getLaporanBanyakTransaksi();
                 <option value="12">Desember</option>
             </select>
         </div>
+        <br>
         <div id="banyak-transaksi">
             <p class="m-0 font-weight-bold text-primary" style="margin-top: 10px;">
             Banyak transaksi : <?php
@@ -130,13 +126,6 @@ $dataLaporanBanyakTransaksi = getLaporanBanyakTransaksi();
                         <th>Jumlah Terjual</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Barang</th>
-                        <th>Jumlah Terjual</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                 <?php
                     // Menampilkan data barang
