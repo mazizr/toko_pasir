@@ -54,7 +54,7 @@ $datacekStokBarang = cekStokBarang();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Barang</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel"><strong>Tambah Data Barang</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -62,20 +62,20 @@ $datacekStokBarang = cekStokBarang();
         <form action="tambah_data_barang.php" id="myForm" method="POST">
             <div class="modal-body">    
                 <div class="form-floating mb-4">
-                    <label for="Nama">Nama Barang</label>
-                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Barang">
+                    <label for="Nama"><strong>Nama Barang</strong></label>
+                    <input type="text" class="form-control" name="nama_barang" placeholder="Nama Barang (Merk)" required autocomplete="off" >
                 </div>
 
-                <input type="number" style="display: none;" class="form-control" name="jumlah_barang" value="0">
+                <input type="number" style="display: none;" class="form-control" name="jumlah_barang" value="0" required autocomplete="off">
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Harga Barang</label>
-                    <input type="number" class="form-control" name="harga_barang" placeholder="Masukkan Harga Barang">
+                    <label for="Harga"><strong>Harga Barang</strong></label>
+                    <input type="number" class="form-control" name="harga_barang" placeholder="Rp. " required autocomplete="off">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Satuan">Satuan Barang</label>
-                    <input type="text" class="form-control" name="satuan_barang" placeholder="Masukkan Satuan Barang">
+                    <label for="Satuan"><strong>Satuan Barang</strong></label>
+                    <input type="text" class="form-control" name="satuan_barang" placeholder=" " required autocomplete="off">
                 </div>
             </div>
             <div class="modal-footer">
@@ -103,30 +103,30 @@ $datacekStokBarang = cekStokBarang();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Data Barang</h5>
+        <h5 class="modal-title text-primary" id="exampleModalLabel" ><strong>Edit Data Barang</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
         <form action="edit_data_barang.php" id="editForm" method="POST">
             <div class="modal-body">    
-                <input type="number" style="display: none;" id="id_barang" class="form-control" name="id_barang">
+                <input type="number" style="display: none;" id="id_barang" class="form-control" name="id_barang" required autocomplete="off">
             
                 <div class="form-floating mb-4">
-                    <label for="Nama">Nama Barang</label>
-                    <input type="text" id="nama_barang" class="form-control" name="nama_barang" placeholder="">
+                    <label for="Nama"><strong>Nama Barang</strong></label>
+                    <input type="text" id="nama_barang" class="form-control" name="nama_barang" placeholder="" required autocomplete="off">
                 </div>
 
                 <input type="number" style="display: none;" id="jumlah_barang" class="form-control" name="jumlah_barang">
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Harga Barang</label>
-                    <input type="number" id="harga_barang" class="form-control" name="harga_barang" placeholder="">
+                    <label for="Harga"><strong>Harga Barang</strong></label>
+                    <input type="number" id="harga_barang" class="form-control" name="harga_barang" placeholder="" required autocomplete="off">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Satuan">Satuan Barang</label>
-                    <input type="text" class="form-control" id="satuan_barang" name="satuan_barang" placeholder="">
+                    <label for="Satuan"><strong>Satuan Barang</strong></label>
+                    <input type="text" class="form-control" id="satuan_barang" name="satuan_barang" placeholder="" required autocomplete="off">
                 </div>
             </div>
             <div class="modal-footer">
@@ -181,22 +181,13 @@ $datacekStokBarang = cekStokBarang();
                     <tr>
                         <th>No</th>
                         <th>Nama Barang</th>
-                        <th>Satuan Barang</th>
                         <th>Harga Barang</th>
                         <th>Jumlah Stok</th>
+                        <th>Satuan Barang</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Barang</th>
-                        <th>Satuan Barang</th>
-                        <th>Harga Barang</th>
-                        <th>Jumlah Stok</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+                
                 <tbody>
                     <?php
                     // Menampilkan data barang
@@ -208,9 +199,9 @@ $datacekStokBarang = cekStokBarang();
                         <td hidden><?php echo $barang['kode_barang']; ?></td>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $barang['nama_barang']; ?></td>
-                        <td><?php echo $barang['satuan']; ?></td>
-                        <td><?php echo $barang['harga_barang']; ?></td>
+                        <td><?php echo $barang['harga_barang'];   ?></td>
                         <td><?php echo $barang['jumlah_barang']; ?></td>
+                        <td><?php echo $barang['satuan']; ?></td>
                         <td>
                             <a href="#" id_barang="<?php echo $barang['kode_barang']; ?>" class="btn btn-warning btn-icon-split btn-round btn-sm editbtn">
                                 <span class="icon text-white-50">
@@ -265,9 +256,9 @@ require 'footer.php';
 
             $('#id_barang').val(data[0]);
             $('#nama_barang').val(data[2]);
+            $('#harga_barang').val(data[3]);
             // $('#jumlah_barang').val(data[3]);
-            $('#harga_barang').val(data[4]);
-            $('#satuan_barang').val(data[3]);
+            $('#satuan_barang').val(data[5]);
         });
     });
 </script>
@@ -277,7 +268,7 @@ function resetForm() {
   document.getElementById("myForm").reset();
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $namaBarang = $_POST['nama_barang'];
+  $namaBarang = strtolower($_POST['nama_barang']);
   $jumlahBarang = $_POST['jumlah_barang'];
   $hargaBarang = $_POST['harga_barang'];
   insertBarang($namaBarang, $hargaBarang, $jumlahBarang);
