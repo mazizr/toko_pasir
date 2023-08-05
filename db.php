@@ -184,6 +184,19 @@ function getLaporanBanyakTransaksi() {
 function insertBarang($namaBarang, $hargaBarang, $jumlahBarang, $satuanBarang) {
     global $conn;
 
+    // cek nama barang udah ada atau belom
+    $a = mysqli_query($conn, "SELECT nama_barang FROM barang WHERE nama_barang = '$namaBarang'");
+    
+    if (mysqli_fetch_assoc($a)) {
+        echo "
+        <script>
+            alert('Nama Barang Sudah Terdaftar!');
+            document.location = 'data_barang.php';
+        </script>
+        ";
+        return false;
+    }
+
     $query = "INSERT INTO barang (nama_barang, harga_barang, jumlah_barang, satuan) VALUES ('$namaBarang', '$hargaBarang', '$jumlahBarang', '$satuanBarang')";
     $result = $conn->query($query);
 
@@ -208,6 +221,33 @@ function insertBarang($namaBarang, $hargaBarang, $jumlahBarang, $satuanBarang) {
 
 function insertKaryawan($namaKaryawan, $notelpKaryawan, $alamatKaryawan, $usernameKaryawan, $passwordKaryawan, $roleKaryawan) {
     global $conn;
+
+    // cek nama_pengguna udah ada atau belom
+    $a = mysqli_query($conn, "SELECT nama_pengguna FROM karyawan WHERE nama_pengguna = '$usernameKaryawan'");
+    
+    if (mysqli_fetch_assoc($a)) {
+        echo "
+        <script>
+            alert('Nama Pengguna Sudah Terdaftar!');
+            document.location = 'data_karyawan.php';
+        </script>
+        ";
+        return false;
+    }
+
+        // cek no telp udah ada atau belom
+    $a = mysqli_query($conn, "SELECT no_telp FROM karyawan WHERE no_telp = '$notelpKaryawan'");
+    
+    if (mysqli_fetch_assoc($a)) {
+        echo "
+        <script>
+            alert('Nomor Telepon Sudah Terdaftar!');
+            document.location = 'data_karyawan.php';
+        </script>
+        ";
+        return false;
+    }
+
 
     $query = "INSERT INTO karyawan (nama_karyawan, no_telp, alamat, nama_pengguna, kata_sandi, role) VALUES ('$namaKaryawan', '$notelpKaryawan', '$alamatKaryawan', '$usernameKaryawan', '$passwordKaryawan', '$roleKaryawan')";
     $result = $conn->query($query);
