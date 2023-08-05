@@ -45,7 +45,7 @@ $dataKaryawan = getKaryawan();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Karyawan</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Tambah Data Karyawan</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -53,32 +53,32 @@ $dataKaryawan = getKaryawan();
         <form action="tambah_data_karyawan.php" id="myForm" method="POST">
             <div class="modal-body">    
                 <div class="form-floating mb-4">
-                    <label for="Nama">Nama Karyawan</label>
-                    <input required type="text" class="form-control" name="nama_karyawan" placeholder="">
+                    <label for="Nama"><strong>Nama Karyawan</strong></label>
+                    <input required type="text" class="form-control" name="nama_karyawan" placeholder="" >
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">No Telp</label>
-                    <input required type="text" class="form-control" name="no_telp" placeholder="">
+                    <label for="Harga"><strong>No Telp</strong></label>
+                    <input required type="text" class="form-control" name="no_telp" placeholder="" >
                 </div>
                 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Alamat</label>
-                    <input required type="text" class="form-control" name="alamat" placeholder="">
+                    <label for="Harga"><strong>Alamat</strong></label>
+                    <input required type="text" class="form-control" name="alamat" placeholder="" >
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Nama Pengguna</label>
-                    <input required type="text" class="form-control" name="username" placeholder="">
+                    <label for="Harga"><strong>Nama Pengguna</strong></label>
+                    <input required type="text" class="form-control" name="username" placeholder="" >
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Kata Sandi</label>
-                    <input required type="text" class="form-control" name="password" placeholder="">
+                    <label for="Harga"><strong>Kata Sandi</strong></label>
+                    <input required type="text" class="form-control" name="password" placeholder="" >
                 </div>
                 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Role</label><br>
+                    <label for="Harga"><strong>Role</strong></label><br>
                     <div class="d-inline custom-control custom-radio">
                         <input required type="radio" id="pemilik" name="role" class="custom-control-input" value="pemilik">
                         <label style="margin-right: 5px;" class="custom-control-label" for="pemilik">Pemilik</label>
@@ -116,7 +116,7 @@ $dataKaryawan = getKaryawan();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-primary">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Data Karyawan</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Edit Data Karyawan</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -125,32 +125,32 @@ $dataKaryawan = getKaryawan();
             <div class="modal-body">    
                 <input required type="number" style="display: none;" id="kode_karyawan" class="form-control" name="kode_karyawan">
                 <div class="form-floating mb-4">
-                    <label for="Nama">Nama Karyawan</label>
+                    <label for="Nama"><strong>Nama Karyawan</strong></label>
                     <input required type="text" class="form-control" id="nama_karyawan" name="nama_karyawan" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">No Telp</label>
+                    <label for="Harga"><strong>No Telp</strong></label>
                     <input required type="text" class="form-control" id="no_telp" name="no_telp" placeholder="">
                 </div>
                 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Alamat</label>
+                    <label for="Harga"><strong>Alamat</strong></label>
                     <input required type="text" class="form-control" id="alamat" name="alamat" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Nama Pengguna</label>
+                    <label for="Harga"><strong>Nama Pengguna</strong></label>
                     <input required type="text" class="form-control" id="username" name="username" placeholder="">
                 </div>
 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Kata Sandi</label>
+                    <label for="Harga"><strong>Kata Sandi</strong></label>
                     <input required type="text" class="form-control" id="password" name="password" placeholder="">
                 </div>
                 
                 <div class="form-floating mb-4">
-                    <label for="Harga">Role</label><br>
+                    <label for="Harga"><strong>Role</strong></label><br>
                     <div class="d-inline custom-control custom-radio">
                         <input required type="radio" id="edit-pemilik" name="edit-role" class="custom-control-input" value="pemilik">
                         <label style="margin-right: 5px;" class="custom-control-label" for="edit-pemilik">Pemilik</label>
@@ -222,18 +222,7 @@ $dataKaryawan = getKaryawan();
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Kayawan</th>
-                        <th>No Telp</th>
-                        <th>Alamat</th>
-                        <th>Nama Pengguna</th>
-                        <th>Kata Sandi</th>
-                        <th>Role</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+                
                 <tbody>
                     <?php
                     // Menampilkan data barang
